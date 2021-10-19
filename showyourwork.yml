@@ -1,2 +1,62 @@
 # User configuration; see the docs for details!
 verbose: true
+
+figure_dependencies:
+    sfh_vs_fb.py:
+        - FIRE.h5:
+            download:
+                id: 942119 
+
+    form_eff.py:
+        - DWDeff_FZ.hdf:
+            download:
+                id: 942119
+        - DWDeff_F50.hdf:
+            download:
+                id: 942119
+
+    CEsep.py:
+        - 10_10_intersep_FZ.hdf:
+            download:
+                id: 942119
+        - 11_10_intersep_FZ.hdf:
+            download:
+                id: 942119
+        - 11_11_intersep_FZ.hdf:
+            download:
+                id: 942119
+        - 12_intersep_FZ.hdf:
+            download:
+                id: 942119
+
+    lisa_nums.py:
+        - numLISA_30bins_FZ.hdf:
+            download:
+                id: 942119
+        - numLISA_30bins_F50.hdf:
+            download:
+                id: 942119
+  
+    Mc_vs_dist.py:
+        - resolved_DWDs_FZ.hdf:
+            download:
+                id: 942119
+        - resolved_DWDs_F50.hdf:
+            download:
+                id: 942119
+  
+    PSD.py:
+        - resolved_DWDs_FZ.hdf:
+            download:
+                id: 942119
+        - resolved_DWDs_F50.hdf:
+            download:
+                id: 942119
+  
+    LISA_SNR.py:
+        - resolved_DWDs_FZ.hdf:
+            download:
+                id: 942119
+        - resolved_DWDs_F50.hdf:
+            download:
+                id: 942119
