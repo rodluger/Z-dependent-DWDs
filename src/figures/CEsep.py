@@ -1,3 +1,4 @@
+from matplotlib.ticker import AutoMinorLocator
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,11 +9,13 @@ COHeinter = pd.read_hdf('11_10_intersep_FZ.hdf', key='data')
 COinter = pd.read_hdf('11_11_intersep_FZ.hdf', key='data')
 ONeinter = pd.read_hdf('12_intersep_FZ.hdf', key='data')
 
-
+FIREmin=0.00015
+FIREmax=13.346
+Z_sun=0.02
 num = 30
 met_bins = np.logspace(np.log10(FIREmin), np.log10(FIREmax), num)#*Z_sun
 met_mids = (met_bins[1:] + met_bins[:-1]) / 2
-
+whichsep='CEsep'
 
 Heavgs = []
 Hecovs = []

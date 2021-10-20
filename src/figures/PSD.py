@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import astropy.units as u
 
 def func(x, a, b, c, d, e):
     return a + b*x + c*x**2 + d*x**3 + e*x**4

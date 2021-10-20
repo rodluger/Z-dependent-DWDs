@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
-import matplotlib.pylot as plt
+import matplotlib.pyplot as plt
+from matplotlib.ticker import AutoMinorLocator
 
 numsFZ = pd.read_hdf('numLISA_30bins_FZ.hdf', key='data')
 numsF50 = pd.read_hdf('numLISA_30bins_F50.hdf', key='data')

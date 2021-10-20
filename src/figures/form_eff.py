@@ -1,3 +1,4 @@
+from matplotlib.ticker import AutoMinorLocator
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,6 +6,7 @@ import matplotlib.pyplot as plt
 met_arr = np.logspace(np.log10(1e-4), np.log10(0.03), 15)
 met_arr = np.round(met_arr, 8)
 met_arr = np.append(0.0, met_arr)
+Z_sun = 0.02
 
 DWDeff = pd.read_hdf('DWDeff_FZ.hdf', key='data')
 effHe = DWDeff.He.values

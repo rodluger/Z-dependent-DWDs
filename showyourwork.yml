@@ -5,107 +5,143 @@ figure_dependencies:
     sfh_vs_fb.py:
         - FIRE.h5:
             download:
-                id: 942327 
+                id: 942967
+                sandbox: true
 
     form_eff.py:
         - DWDeff_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - DWDeff_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
 
     CEsep.py:
         - 10_10_intersep_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
+
         - 11_10_intersep_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
+
         - 11_11_intersep_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
+
         - 12_intersep_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
+
 
     lisa_nums.py:
         - numLISA_30bins_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
 
     Mc_vs_dist.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
 
     PSD.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
 
     LISA_SNR.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942327 
+                id: 942967 
+                sandbox: true
     model_comp.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_FZ_qcflag_4.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50_qcflag_4.hdf:
             download:
-                id: 942327 
+                id: 942967 
+                sandbox: true
         - resolved_DWDs_FZ_alpha_0.25.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50_alpha_0.25.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_FZ_alpha_5.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - resolved_DWDs_F50_alpha_5.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_FZ.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_F50.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_FZ_qcflag_4.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_F50_qcflag_4.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_FZ_alpha_0.25.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_F50_alpha_0.25.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_FZ_alpha_5.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
         - numLISA_30bins_F50_alpha_5.hdf:
             download:
-                id: 942327
+                id: 942967
+                sandbox: true
+

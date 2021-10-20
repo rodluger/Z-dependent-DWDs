@@ -1,7 +1,10 @@
+from matplotlib.ticker import AutoMinorLocator
 import legwork.utils as utils
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import astropy.units as u
+import seaborn as sns
 
 resolved_dat_FZ = pd.read_hdf('resolved_DWDs_{}.hdf'.format('FZ'), key='resolved')
 resolved_dat_FZ = resolved_dat_FZ.loc[resolved_dat_FZ.resolved_chirp == 1.0]
@@ -20,11 +23,11 @@ COHeplot_F50 = resolved_dat_F50.loc[(resolved_dat_F50.kstar_1 == 11) & (resolved
 COplot_F50 = resolved_dat_F50.loc[(resolved_dat_F50.kstar_1 == 11) & (resolved_dat_F50.kstar_2 == 11)]
 ONeplot_F50 = resolved_dat_F50.loc[(resolved_dat_F50.kstar_1 == 12) & (resolved_dat_F50.kstar_2.isin([10,11,12]))]
 
-dists = [x.dist_sun for x in [Heplot, COHeplot, COplot, ONeplot]]
-dists_F50 = [x.dist_sun for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]]
+dists = [x.dist_sun.values for x in [Heplot, COHeplot, COplot, ONeplot]]
+dists_F50 = [x.dist_sun.values for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]]
 
-M_c = [utils.chirp_mass(x.mass_1.values*u.M_sun, x.mass_2.values*u.M_sun) for x in [Heplot, COHeplot, COplot, ONeplot]]
-M_c_F50 = [utils.chirp_mass(x.mass_1.values*u.M_sun, x.mass_2.values*u.M_sun) for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]]
+M_c = [utils.chirp_mass(x.mass_1.values*u.M_sun, x.mass_2.values*u.M_sun).value for x in [Heplot, COHeplot, COplot, ONeplot]]
+M_c_F50 = [utils.chirp_mass(x.mass_1.values*u.M_sun, x.mass_2.values*u.M_sun).value for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]]
 fig, ax = plt.subplots(1, 4, figsize=(16,4))
 levels = [0.05, 0.25, 0.50, 0.75, 0.95]
 label_y = [0.35, 0.49, 0.95, 1.6]

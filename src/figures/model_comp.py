@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import astropy.units as u
 
 models = ['log_uniform', 'qcflag_4', 'alpha_0.25', 'alpha_5']
 model_names = ['fiducial', r'q3', r'$\alpha25$', r'$\alpha5$']
@@ -29,18 +30,19 @@ popt_F50_list = []
 popt_FZ_list = []
 
 for m in models:
-    if m == log_uniform:
+    if m == 'log_uniform':
         n_lisa_F50 = pd.read_hdf('numLISA_30bins_F50.hdf', key='data')
         n_lisa_FZ = pd.read_hdf('numLISA_30bins_FZ.hdf', key='data')
         
         popt_F50 = pd.read_hdf('resolved_DWDs_F50.hdf', key='conf_fit')
         popt_FZ = pd.read_hdf('resolved_DWDs_FZ.hdf', key='conf_fit')
     else:
-        n_lisa_F50 = pd.read_hdf('numLISA_30bins_F50_{}.hdf'.format(model), key='data')
-        n_lisa_FZ = pd.read_hdf('numLISA_30bins_FZ_{}.hdf'.format(model), key='data')
-        
-        popt_F50 = pd.read_hdf('resolved_DWDs_F50_{}.hdf'.format(model), key='conf_fit')
-        popt_FZ = pd.read_hdf('resolved_DWDs_FZ_{}.hdf'.format(model), key='conf_fit')
+        n_lisa_F50 = pd.read_hdf('numLISA_30bins_F50_{}.hdf'.format(m), key='data')
+        n_lisa_FZ = pd.read_hdf('numLISA_30bins_FZ_{}.hdf'.format(m), key='data')
+
+        print(m, 'resolved_DWDs_F50_{}.hdf'.format(m))        
+        popt_F50 = pd.read_hdf('resolved_DWDs_F50_{}.hdf'.format(m), key='conf_fit')
+        popt_FZ = pd.read_hdf('resolved_DWDs_FZ_{}.hdf'.format(m), key='conf_fit')
 
     n_lisa_F50 = np.sum(n_lisa_F50.values.flatten())
     n_lisa_FZ = np.sum(n_lisa_FZ.values.flatten())

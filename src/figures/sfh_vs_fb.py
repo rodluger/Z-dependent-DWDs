@@ -45,6 +45,11 @@ def get_binfrac_of_Z(Z):
     return binfrac
 
 
+met_arr = np.logspace(np.log10(1e-4), np.log10(0.03), 15)
+met_arr = np.round(met_arr, 8)
+met_arr = np.append(0.0, met_arr)
+
+Z_sun = 0.02
 
 FIRE = pd.read_hdf('FIRE.h5')
 fig, ax = plt.subplots()

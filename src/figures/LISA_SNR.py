@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import astropy.units as u
 from legwork.visualisation import plot_sensitivity_curve
+from legwork import psd
 
-def plot_LISAcurves(model)   
+def plot_LISAcurves(model): 
     def func(x, a, b, c, d, e):
         return a + b*x + c*x**2 + d*x**3 + e*x**4
     
