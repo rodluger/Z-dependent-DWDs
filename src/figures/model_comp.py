@@ -1,3 +1,8 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 models = ['log_uniform', 'qcflag_4', 'alpha_0.25', 'alpha_5']
 model_names = ['fiducial', r'q3', r'$\alpha25$', r'$\alpha5$']
 colors = sns.color_palette("mako", n_colors=len(models))
@@ -91,4 +96,4 @@ ax_dict['B'].set_xlabel(r'N$_{\rm{LISA, F50}}$', size=16)
 ax_dict['A'].tick_params(labelsize=12)
 ax_dict['B'].tick_params(labelsize=12)
 plt.tight_layout()
-plt.savefig('model_comp.png', dpi=250, facecolor='white')
+plt.savefig('model_comp.pdf', dpi=100)

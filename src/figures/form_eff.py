@@ -54,4 +54,4 @@ for i in range(4):
     ax[i].tick_params(labelsize=15)
   
 plt.tight_layout()
-plt.savefig('form_eff.png', dpi=250)
+plt.savefig('form_eff.pdf', dpi=100)

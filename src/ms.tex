@@ -101,7 +101,7 @@ To create Milky Way-like galaxies which integrate the metallicity-dependent bina
 The \textbf{m12i} galaxy provides particle mass resolution of 7070 M$_\odot$ per star particle. Each star particle has an associated metallicity, position, and age, which is combined with the output of \cosmic\ to assign DWDs to each star particle by matching its metallicity to our \cosmic\ metallicity grid. The positions of each DWD are assigned using the Ananke framework since multiple DWD binaries can form within a single star particle. Specifically, we use an epanechnikov kernel where the kernel size is inversely proportional to the local density to assign the radial component of spherically symmetric offsets from the center of each star particle following \citet{Sanderson2020}. 
 
 \begin{figure}
-	\includegraphics[width=\columnwidth]{figures/SFH_vs_fb.png}
+	\includegraphics[width=\columnwidth]{figures/SFH_vs_fb.pdf}
     \caption{The metallicity-dependent binary fraction for close solar-type binaries with P $< 10^4$ days (black) plotted against the logarithm of Z/Z$_\odot$, with scatter points denoting the location of the metallicity grid used in our \cosmic\ simulations. The secondary axis shows the amount of mass in stars formed within each metallicity bin from galaxy \textbf{m12i} of the ``Latte" suite in FIRE as a red histogram. The amount of stellar mass formed with super-solar metallicities dominates the distribution. Note that the primary axis shows $f_{\rm{b}}(Z)$ in linear scale, and the secondary axis shows amount of mass formed in log-scale. The opposing trends of these two distributions compete throughout this study.}
     \label{fig:SFH_vs_fb}
 \end{figure}
@@ -216,7 +216,7 @@ He WDs are unable to form through single star evolution within the lifetime of t
 He + He DWDs form through evolution of close binary systems, during which their envelopes are both stripped through RLO and CE phase interactions before Helium ignition occurs. The two progenitor stars generally have masses $<2.5 - 3 $M$_\odot$ which are lower than the progenitors of other DWD types. Our simulated He + He DWDs have an approximately constant distribution of formation times $\gtrsim$ 2.5Gyr. Since the ZAMS separations are skewed towards shorter values, we also see that the resulting DWD separations are smaller on average than that of other DWD types. 
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{figures/form_eff.png}
+	\includegraphics[width=\textwidth]{figures/form_eff.pdf}
     \caption{The DWD formation efficiency vs metallicity of DWD populations simulated with \cosmic. Each panel shows the formation efficiency for a given DWD type. The solid lines indicate the formation efficiency for model FZ which incorporates a metallicity-dependent binary fraction. The dashed lines indicate the formation efficiency for model F50, which assumes a constant binary fraction of $50\%$. The DWD formation efficiency drops by a factor of $4-5$ for model FZ and a factor of 2-5 for model F50. See Section~\ref{sec:formeff} for a careful description of the trends for each DWD type.}
     \label{fig:form_eff}
 \end{figure*}
@@ -235,7 +235,7 @@ The number of DWDs formed per unit solar mass of ZAMS star formation, or DWD for
 For He + He DWDs, the sudden drop in formation efficiency near $\log(Z/Z_{\odot})=-1.0$, is generally caused by the timescale for which the initially more massive star in the DWD progenitor overflows it's Roche lobe. At lower metallicities, donors tend to fill their Roche lobes while they are still on the main sequence and the mass transfer remains stable. This is because, in our \cosmic\ models, lower metallicity stars evolve faster than high-metallicity stars and have larger radii near the end of the MS. At higher metallicities, mass transfer is initiated when the donor has left the main sequence and the binary enters a common envelope evolution. The ZAMS orbital period leads to different specific evolutionary channels. For short-period systems with periods below $10~\rm{days}$, this leads to a stellar merger due to insufficient orbital energy to eject the envelope. Stellar mergers continue to dominate the evolutionary pathways of systems with intermediate orbital periods ($1 < \log_{10}(P_{\rm{orb}}/\rm{day}) < 2.5$). However, there is an additional growing number of merging systems with one WD component and one stellar companion, and systems which don't interact at all and thus do not form a He + He DWD. The distinction between the various scenarios in this intermediate orbital period range depends on the combination of their ZAMS masses and orbital periods. Finally, at wider initial periods $\log_{10}(\rm{P}) > 2.5$, the decrease in formation efficiency is dominated by systems which never interact and thus do not form a DWD before the present day.
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{figures/CEsep.png}
+	\includegraphics[width=\textwidth]{figures/CEsep.pdf}
     \caption{Interaction separation, $a_{\rm{RLO}}$, of progenitors of close DWDs across metallicity for each DWD type from model FZ. Solid lines show the average separation at the first RLO for binaries in each metallicity bin. The shaded regions show the $1\sigma$ spread around the mean within each metallicity bin. The average interaction separation increases with metallicity for every DWD type. The positive trend in the average interaction separation is a direct consequence of larger envelope masses of higher-metallicity donors which are less evolved than their lower-metallicity counterparts.} 
     \label{fig:CEsep}
 \end{figure*}
@@ -255,7 +255,7 @@ The strongest effect which hinders formations of higher metallicity ONe + X DWDs
 \subsection{Metallicity trends in DWD progenitor Roche-overflow separation}\label{sec:CEsep}
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{figures/lisa_nums.png}
+	\includegraphics[width=\textwidth]{figures/lisa_nums.pdf}
     \caption{The number of LISA-band systems formed for each DWD type as a function of the base-10 logarithm of metallicity, normalized to solar value. The solid line shows the FZ population with a metallicity-dependent binary fraction incorporated, and the dashed line shows the F50 population for a standard binary fraction of 0.5. The LISA population of DWDs is dominated by stars with super-solar metallicities. This is true even for model FZ, which drops off significantly for higher metallicities, because of the large number of stars formed in \textbf{m12i} beyond Z$\simeq$Z$_\odot$. There is a double peak in the He + He population; the first peak is caused by the sharp drop in formation efficiency past Z$\simeq$0.1$Z_\odot$ which is then greatly overcompensated for by the amount of star formation at higher metallicities which forms the second peak.}
     \label{fig:lisa_nums}
 \end{figure*}
@@ -274,15 +274,15 @@ While metallicity impacts the intrinsic properties of our simulated DWD populati
 
 
 \begin{figure}
-	\includegraphics[width=1\columnwidth]{figures/PSD.png}
+	\includegraphics[width=1\columnwidth]{figures/PSD.pdf}
     \caption{The PSD of the entire Galactic DWD GW foreground, summed over all metallicities and DWD types vs GW frequency for models FZ and F50. The vertical lines show the PSD where model F50 is shown in dark blue and model FZ is shown in light blue. The dashed lines show fits to the rolling boxcar median of width 1000 bins for each PSD (see \ref{sec:LISA_obs} for a discussion). A metallicity-dependent binary fraction (model FZ) yields fewer DWDs across all frequencies than a $50\%$ binary fraction (model F50) by roughly a factor of $2$. This produces a lower GW confusion foreground for frequencies with f$_{\rm{GW}}\leq\sim10^{-3}$ Hz.}
     \label{fig:PSD}
 \end{figure}
 
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{figures/LISA_SNR_FZ.png}
-	\includegraphics[width=\textwidth]{figures/LISA_SNR_F50.png}
+	\includegraphics[width=\textwidth]{figures/LISA_SNR_FZ.pdf}
+	\includegraphics[width=\textwidth]{figures/LISA_SNR_F50.pdf}
     \caption{The ASD vs GW frequency for DWDs resolved with SNR $> 7$ for each DWD type where the top row shows the population from model FZ and the bottom row shows the population from model F50. In each panel, the LISA sensitivity curve, including the confusion foreground for each model, is shown in black and the total population for each model is shown in grey. We find that each model qualitatively exhibits similar characteristics and that the only change is in the yield of resolved DWDs for each type based on the strenght of the confusion foreground.}
     \label{fig:LISA_SNR}
 \end{figure*}
@@ -293,7 +293,7 @@ There are two peaks in the distribution of He + He DWDs. This occurs because nea
 
 
 \begin{figure*}
-	\includegraphics[width=\textwidth]{plots/Mc_vs_dist.png}
+	\includegraphics[width=\textwidth]{figures/Mc_vs_dist.pdf}
     \caption{The chirp mass vs distance for each DWD type is shown. Only systems with observable evolution in their GW frequency, i.e those which are chirping, and with SNR $>7$, are shown, since these are systems for which distance can be separated from chirp mass within their strain amplitude. Each panel shows one DWD type, summed over all metallicities. Model FZ is indicated with solid light blue contours, and model F50 is indicated with dark blue dashed contours respectively. Contours are shown at the $5^{\rm{th}}$, 25$^{\rm{th}}$, 50$^{\rm{th}}$, 75$^{\rm{th}}$, and 95$^{\rm{th}}$ percentiles. Despite intrinsic changes to population properties induced by a metallicity-dependent binary fraction, and a reduction in the height of the DWD Galactic foreground the distributions are very similar.}
     \label{fig:Mc_vs_dist}
 \end{figure*}
@@ -311,7 +311,7 @@ The distance and chirp mass of DWDs which exhibit observable orbital evolution d
 \label{sec:model_compare}
 
 \begin{figure}
-	\includegraphics[width=0.45\textwidth]{figures/model_comp.png}
+	\includegraphics[width=0.45\textwidth]{figures/model_comp.pdf}
     \caption{The top panel shows the Galactic DWD confusion fit vs GW frequency for different binary evolution assumption variations (colors) with submodel F50 shown in dashed lines and submodel FZ shown in solid lines. The bottom panel shows the ratio of the number of DWDs orbiting in the LISA frequency band for submodel FZ to submodel F50 vs to number of DWDs orbiting in the LISA band for submodel F50 only. While both the height of the confusion foreground and number of LISA DWDs changes for each variation, the FZ submodels within each variation exhibit a constant reduction by a factor of two compared with the F50 submodels.}
     \label{fig:model_comp}
 \end{figure}

@@ -5,58 +5,107 @@ figure_dependencies:
     sfh_vs_fb.py:
         - FIRE.h5:
             download:
-                id: 942119 
+                id: 942327 
 
     form_eff.py:
         - DWDeff_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - DWDeff_F50.hdf:
             download:
-                id: 942119
+                id: 942327
 
     CEsep.py:
         - 10_10_intersep_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - 11_10_intersep_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - 11_11_intersep_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - 12_intersep_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
 
     lisa_nums.py:
         - numLISA_30bins_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - numLISA_30bins_F50.hdf:
             download:
-                id: 942119
-  
+                id: 942327
+
     Mc_vs_dist.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942119
-  
+                id: 942327
+
     PSD.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942119
-  
+                id: 942327
+
     LISA_SNR.py:
         - resolved_DWDs_FZ.hdf:
             download:
-                id: 942119
+                id: 942327
         - resolved_DWDs_F50.hdf:
             download:
-                id: 942119
+                id: 942327 
+    model_comp.py:
+        - resolved_DWDs_FZ.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_F50.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_FZ_qcflag_4.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_F50_qcflag_4.hdf:
+            download:
+                id: 942327 
+        - resolved_DWDs_FZ_alpha_0.25.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_F50_alpha_0.25.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_FZ_alpha_5.hdf:
+            download:
+                id: 942327
+        - resolved_DWDs_F50_alpha_5.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_FZ.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_F50.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_FZ_qcflag_4.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_F50_qcflag_4.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_FZ_alpha_0.25.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_F50_alpha_0.25.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_FZ_alpha_5.hdf:
+            download:
+                id: 942327
+        - numLISA_30bins_F50_alpha_5.hdf:
+            download:
+                id: 942327

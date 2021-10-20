@@ -93,7 +93,7 @@ def plot_LISAcurves(model)
         ax[i].set_xlabel(r'$f_{\rm{GW}}$ [Hz]', size=24)
     ax[0].set_ylabel(r'ASD [Hz$^{-1/2}$]', size=24)
     plt.tight_layout()
-    plt.savefig('LISA_SNR_{}.png'.format(model), dpi=250)
+    plt.savefig('LISA_SNR_{}.pdf'.format(model), dpi=100)
 
     return
 

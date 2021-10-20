@@ -60,5 +60,5 @@ for i in range(4):
 
 ax[0].set_ylabel(r'N$_{f_{\rm{GW}} \geq 10^{-4} \rm{Hz}}$ (Z) [10$^5$]', fontsize=18)
 plt.tight_layout()
-plt.savefig('lisa_nums.png', dpi=250)
+plt.savefig('lisa_nums.pdf', dpi=100)
 

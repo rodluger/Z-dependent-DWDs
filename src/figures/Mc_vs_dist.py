@@ -56,4 +56,4 @@ for j in range(4):
     ax[j].set_xlim(0, 25)
 
 plt.tight_layout()
-plt.savefig('Mc_vs_dist.png', dpi=250)
+plt.savefig('Mc_vs_dist.pdf', dpi=100)

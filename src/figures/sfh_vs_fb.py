@@ -6,7 +6,44 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-from utils import get_binfrac_of_Z, get_FeH_from_Z
+def get_FeH_from_Z(Z, Z_sun=0.02):
+    '''
+    Converts from Z to FeH under the assumption that
+    all stars have the same abundance as the sun
+    
+    INPUTS
+    ----------------------
+    Z [array]: array of metallicities to convert
+    Z_sun [float]: solar metallicity
+    
+    RETURNS
+    ----------------------
+    Z [array]: array of FeH values
+    '''
+    FeH = np.log10(Z) - np.log10(Z_sun)
+    return FeH
+
+def get_binfrac_of_Z(Z):
+    '''
+    Calculates the theoretical binary fraction as a 
+    function of metallicity.
+    
+    INPUTS
+    ----------------------
+    Z [array]: metallicity Z values
+    
+    RETURNS
+    ----------------------
+    binfrac [array]: binary fraction values
+    '''
+    FeH = get_FeH_from_Z(Z)
+    FeH_low = FeH[np.where(FeH<=-1.0)]
+    FeH_high = FeH[np.where(FeH>-1.0)]
+    binfrac_low = -0.0648 * FeH_low + 0.3356
+    binfrac_high = -0.1977 * FeH_high + 0.2025
+    binfrac = np.append(binfrac_low, binfrac_high)
+    return binfrac
+
 
 
 FIRE = pd.read_hdf('FIRE.h5')
@@ -35,5 +72,5 @@ ax.set_ylabel('Binary Fraction')
 ax2.set_ylabel(r'M$_{\rm{stars}}$ per Z bin (M$_\odot$)')
 ax2.set_yticks([1e4, 1e5, 1e6, 1e7]);
 ax2.set_yticklabels(['7e7', '7e8', '7e9', '7e10']);
-plt.savefig('SFH_vs_fb.png', dpi=250)
+plt.savefig('SFH_vs_fb.pdf', dpi=100)
 

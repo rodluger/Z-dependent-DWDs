@@ -104,4 +104,4 @@ for i in range(4):
 ax[0].set_ylabel(r'$\langle a_{\rm{RLOF}}\rangle$ [10$^3$ R$_\odot$]', fontsize=18)
 
 plt.tight_layout()
-plt.savefig('CEsep.png', dpi=250)
+plt.savefig('CEsep.pdf', dpi=100)
