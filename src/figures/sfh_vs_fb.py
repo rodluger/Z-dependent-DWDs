@@ -80,5 +80,5 @@ ax.set_ylabel('Binary Fraction')
 ax2.set_ylabel(r'M$_{\rm{stars}}$ per Z bin (M$_\odot$)')
 ax2.set_yticks([1e4, 1e5, 1e6, 1e7]);
 ax2.set_yticklabels(['7e7', '7e8', '7e9', '7e10']);
-plt.savefig('SFH_vs_fb.pdf', dpi=100)
+plt.savefig('sfh_vs_fb.pdf', dpi=100)
 
