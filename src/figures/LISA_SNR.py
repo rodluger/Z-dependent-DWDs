@@ -46,10 +46,10 @@ def plot_LISAcurves(model):
 
     fig, ax = plt.subplots(1, 4, figsize=(25, 5))
     ax[0].plot(np.linspace(1e-4, 1e-1, 1000000), psd_conf**0.5, c='black')
-    ax[0].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey')
-    ax[0].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey')
-    ax[0].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey')
-    ax[0].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:tomato red', label='He + He')
+    ax[0].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[0].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[0].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[0].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:tomato red', label='He + He', rasterized=True)
     ax[0].legend(loc='lower left', ncol=4, borderaxespad=0, frameon=False, 
                  fontsize=20, markerscale=2)
     ax[0].text(0.1, 3e-17, model+', SNR > 7: {}'.format(len(Heasd)), fontsize=20, 
@@ -57,20 +57,20 @@ def plot_LISAcurves(model):
     
 
     ax[2].plot(np.linspace(1e-4, 1e-1, 1000000), psd_conf**0.5, c='black')
-    ax[2].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey')
-    ax[2].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey')
-    ax[2].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey')
-    ax[2].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:pink', label='CO + CO')
+    ax[2].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[2].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[2].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[2].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:pink', label='CO + CO', rasterized=True)
     ax[2].legend(loc='lower left', ncol=4, borderaxespad=0, frameon=False, 
                  fontsize=20, markerscale=2)
     ax[2].text(0.1, 3e-17, model+', SNR > 7: {}'.format(len(COasd)), fontsize=20, 
            horizontalalignment='right')
     
     ax[1].plot(np.linspace(1e-4, 1e-1, 1000000), psd_conf**0.5, c='black')
-    ax[1].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey')
-    ax[1].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey')
-    ax[1].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey')
-    ax[1].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:blurple', label='CO + He')
+    ax[1].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[1].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[1].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[1].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:blurple', label='CO + He', rasterized=True)
     ax[1].legend(loc='lower left', ncol=4, borderaxespad=0, frameon=False, 
                  fontsize=20, markerscale=2)
     ax[1].text(0.1, 3e-17, model+', SNR > 7: {}'.format(len(COHeasd)), fontsize=20, 
@@ -79,10 +79,10 @@ def plot_LISAcurves(model):
     
 
     ax[3].plot(np.linspace(1e-4, 1e-1, 1000000), psd_conf**0.5, c='black')
-    ax[3].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey')
-    ax[3].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey')
-    ax[3].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey')
-    ax[3].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light blue', label='ONe + X')
+    ax[3].scatter(resolved_HeHe.f_gw, Heasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[3].scatter(resolved_COCO.f_gw, COasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[3].scatter(resolved_COHe.f_gw, COHeasd, zorder=10, color='xkcd:light grey', rasterized=True)
+    ax[3].scatter(resolved_ONeX.f_gw, ONeasd, zorder=10, color='xkcd:light blue', label='ONe + X', rasterized=True)
     ax[3].legend(loc='lower left', ncol=4, borderaxespad=0, frameon=False, 
                  fontsize=20, markerscale=2)
     ax[3].text(0.1, 3e-17, model+', SNR > 7: {}'.format(len(ONeasd)), fontsize=22, 

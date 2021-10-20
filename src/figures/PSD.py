@@ -29,8 +29,8 @@ conf_fit_F50 = 10**func(
 
 
 fig, (ax1) = plt.subplots(1, 1, figsize=(6, 4.2))
-plt.plot(power_dat_F50.f_gw[::10], power_dat_F50.strain_2[::10] * Tobs.to(u.s).value, c=colors[1], lw=1, alpha=1, rasterized=False)
-plt.plot(power_dat_FZ.f_gw[::10], power_dat_FZ.strain_2[::10] * Tobs.to(u.s).value, c=colors[0], lw=1, alpha=0.8, rasterized=False)
+plt.plot(power_dat_F50.f_gw[::10], power_dat_F50.strain_2[::10] * Tobs.to(u.s).value, c=colors[1], lw=1, alpha=1, rasterized=True)
+plt.plot(power_dat_FZ.f_gw[::10], power_dat_FZ.strain_2[::10] * Tobs.to(u.s).value, c=colors[0], lw=1, alpha=0.8, rasterized=True)
 plt.plot(np.linspace(1e-4, 1e-1, 100000), conf_fit_F50, c=colors[3], ls='--', lw=2, label=r'F50')
 plt.plot(np.linspace(1e-4, 1e-1, 100000), conf_fit_FZ, c=colors[2], ls='--', lw=2, label=r'FZ')
 plt.xscale('log')
