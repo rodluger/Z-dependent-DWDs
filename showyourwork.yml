@@ -1,6 +1,11 @@
 # User configuration; see the docs for details!
 verbose: true
 
+arxiv_tarball_exclude:
+  - "**/*.py"
+  - "**/matplotlibrc"
+  - "**/.gitignore"
+
 figure_dependencies:
     sfh_vs_fb.py:
         - FIRE.h5:
@@ -146,7 +151,3 @@ figure_dependencies:
                 sandbox: true
 
 
-arxiv_tarball_exclude:
-  - "**/*.py"
-  - "**/matplotlibrc"
-  - "**/.gitignore"
