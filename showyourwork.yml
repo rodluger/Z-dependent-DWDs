@@ -145,3 +145,8 @@ figure_dependencies:
                 id: 942967
                 sandbox: true
 
+
+arxiv_tarball_exclude:
+  - "**/*.py"
+  - "**/matplotlibrc"
+  - "**/.gitignore"
