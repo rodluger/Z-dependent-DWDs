@@ -18,10 +18,6 @@
 </a>
 </p>
 
-## You're all set!
+This is a test repository for using [showyourwork](https://showyourwork.readthedocs.io) with papers which use [COSMIC](https://cosmic-popsynth.github.io/) data to produce synthetic catalogs of binary star systems. This particular example focuses on how assuming a metallicity-dependent Zero Age Main Sequence binary fraction affects the formation and evolution of double white dwarf binaries that LISA may observe. Watch for the paper on arXiv soon!
 
-Your new repository is set up and ready to go. Click on the badges at the top to take you to the compiled article PDF or to a tarball containing all of the manuscript files. Both the PDF and the tarball are automatically updated every time you push changes to this repo; note that builds usually take a few minutes (or more, depending on what you're doing).
-
-The first thing you might want to do is customize the `src/ms.tex` file, which is currently just filled with placeholder text. You should also delete the current placeholder figure scripts in the `src/figures` directory, and add the scripts needed to build your own figures. If your workflow has external dependencies (which it most likely will), you must add them to the `environment.yml` file so `showyourwork` can build the paper from scratch. See [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#managing-environments) for details. Finally, change or edit the `LICENSE` as needed and replace the text in this `README.md` with some useful information for the reader!
-
-If you run into any trouble, please check out the [showyourwork documentation](https://showyourwork.readthedocs.io). If you think you've encountered a bug, please check out the [issues page](https://github.com/rodluger/showyourwork/issues) and raise a new one if needed.
+Check out the [showyourwork documentation](https://showyourwork.readthedocs.io) if you want to show your *own* work in your next paper!
