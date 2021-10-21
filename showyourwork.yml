@@ -66,27 +66,27 @@ figure_dependencies:
                 sandbox: true
 
     PSD.py:
-        - resolved_DWDs_FZ.hdf:
-        - resolved_DWDs_F50.hdf:
+        - resolved_DWDs_FZ.hdf
+        - resolved_DWDs_F50.hdf
 
     LISA_SNR.py:
-        - resolved_DWDs_FZ.hdf:
-        - resolved_DWDs_F50.hdf:
+        - resolved_DWDs_FZ.hdf
+        - resolved_DWDs_F50.hdf
 
     model_comp.py:
-        - resolved_DWDs_FZ.hdf:
-        - resolved_DWDs_F50.hdf:
-        - resolved_DWDs_FZ_qcflag_4.hdf:
-        - resolved_DWDs_F50_qcflag_4.hdf:
-        - resolved_DWDs_FZ_alpha_0.25.hdf:
-        - resolved_DWDs_F50_alpha_0.25.hdf:
-        - resolved_DWDs_FZ_alpha_5.hdf:
-        - resolved_DWDs_F50_alpha_5.hdf:
-        - numLISA_30bins_FZ.hdf:
-        - numLISA_30bins_F50.hdf:
-        - numLISA_30bins_FZ_qcflag_4.hdf:
-        - numLISA_30bins_F50_qcflag_4.hdf:
-        - numLISA_30bins_FZ_alpha_0.25.hdf:
-        - numLISA_30bins_F50_alpha_0.25.hdf:
-        - numLISA_30bins_FZ_alpha_5.hdf:
-        - numLISA_30bins_F50_alpha_5.hdf:
+        - resolved_DWDs_FZ.hdf
+        - resolved_DWDs_F50.hdf
+        - resolved_DWDs_FZ_qcflag_4.hdf
+        - resolved_DWDs_F50_qcflag_4.hdf
+        - resolved_DWDs_FZ_alpha_0.25.hdf
+        - resolved_DWDs_F50_alpha_0.25.hdf
+        - resolved_DWDs_FZ_alpha_5.hdf
+        - resolved_DWDs_F50_alpha_5.hdf
+        - numLISA_30bins_FZ.hdf
+        - numLISA_30bins_F50.hdf
+        - numLISA_30bins_FZ_qcflag_4.hdf
+        - numLISA_30bins_F50_qcflag_4.hdf
+        - numLISA_30bins_FZ_alpha_0.25.hdf
+        - numLISA_30bins_F50_alpha_0.25.hdf
+        - numLISA_30bins_FZ_alpha_5.hdf
+        - numLISA_30bins_F50_alpha_5.hdf
