@@ -40,7 +40,6 @@ for m in models:
         n_lisa_F50 = pd.read_hdf('numLISA_30bins_F50_{}.hdf'.format(m), key='data')
         n_lisa_FZ = pd.read_hdf('numLISA_30bins_FZ_{}.hdf'.format(m), key='data')
 
-        print(m, 'resolved_DWDs_F50_{}.hdf'.format(m))        
         popt_F50 = pd.read_hdf('resolved_DWDs_F50_{}.hdf'.format(m), key='conf_fit')
         popt_FZ = pd.read_hdf('resolved_DWDs_FZ_{}.hdf'.format(m), key='conf_fit')
 
