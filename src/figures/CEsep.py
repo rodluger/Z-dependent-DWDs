@@ -167,7 +167,7 @@ for i in range(4):
     )
     ax[i].xaxis.set_minor_locator(AutoMinorLocator())
     ax[i].yaxis.set_minor_locator(AutoMinorLocator())
-ax[0].set_ylabel(r"$\langle a_{\rm{RLOF}}\rangle$ [10$^3$ R$_\odot$]", fontsize=18)
+# ax[0].set_ylabel(r"$\langle a_{\rm{RLOF}}\rangle$ [10$^3$ R$_\odot$]", fontsize=18)
 
 plt.tight_layout()
 plt.savefig("CEsep.pdf", dpi=100)
