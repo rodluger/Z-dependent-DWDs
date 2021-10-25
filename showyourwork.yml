@@ -7,146 +7,144 @@ arxiv_tarball_exclude:
   - "**/.gitignore"
 
 zenodo:
-    - FIRE.h5:
-        download:
-            id: 942967
-            sandbox: true
+    - data/FIRE.h5:
+        id: 942967
+        sandbox: true
 
-    - DWDeff_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - DWDeff_F50.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - 10_10_intersep_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - 11_10_intersep_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - 11_11_intersep_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - 12_intersep_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_F50.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_FZ.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_F50.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_FZ_qcflag_4.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_F50_qcflag_4.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_FZ_alpha_0.25.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_F50_alpha_0.25.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_FZ_alpha_5.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - resolved_DWDs_F50_alpha_5.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_FZ_qcflag_4.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_F50_qcflag_4.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_FZ_alpha_0.25.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_F50_alpha_0.25.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_FZ_alpha_5.hdf:
-          download:
-              id: 942967
-              sandbox: true
-    - numLISA_30bins_F50_alpha_5.hdf:
-          download:
-              id: 942967
-              sandbox: true
+    - data/DWDeff_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/DWDeff_F50.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/10_10_intersep_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/11_10_intersep_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/11_11_intersep_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/12_intersep_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_F50.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_FZ.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_F50.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_FZ_qcflag_4.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_F50_qcflag_4.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_FZ_alpha_0.25.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_F50_alpha_0.25.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_FZ_alpha_5.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/resolved_DWDs_F50_alpha_5.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_FZ_qcflag_4.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_F50_qcflag_4.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_FZ_alpha_0.25.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_F50_alpha_0.25.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_FZ_alpha_5.hdf:
+        id: 942967
+        sandbox: true
+
+    - data/numLISA_30bins_F50_alpha_5.hdf:
+        id: 942967
+        sandbox: true
 
 
-figure_dependencies:
-    sfh_vs_fb.py:
-        - FIRE.h5
+dependencies:
+    figures/sfh_vs_fb.py:
+        - data/FIRE.h5
 
-    form_eff.py:
-        - DWDeff_FZ.hdf
-        - DWDeff_F50.hdf
+    figures/form_eff.py:
+        - data/DWDeff_FZ.hdf
+        - data/DWDeff_F50.hdf
 
-    CEsep.py:
-        - 10_10_intersep_FZ.hdf
-        - 11_10_intersep_FZ.hdf
-        - 11_11_intersep_FZ.hdf
-        - 12_intersep_FZ.hdf
+    figures/CEsep.py:
+        - data/10_10_intersep_FZ.hdf
+        - data/11_10_intersep_FZ.hdf
+        - data/11_11_intersep_FZ.hdf
+        - data/12_intersep_FZ.hdf
 
-    lisa_nums.py:
-        - numLISA_30bins_FZ.hdf
-        - numLISA_30bins_F50.hdf
+    figures/lisa_nums.py:
+        - data/numLISA_30bins_FZ.hdf
+        - data/numLISA_30bins_F50.hdf
 
-    Mc_vs_dist.py:
-        - resolved_DWDs_FZ.hdf
-        - resolved_DWDs_F50.hdf
+    figures/Mc_vs_dist.py:
+        - data/resolved_DWDs_FZ.hdf
+        - data/resolved_DWDs_F50.hdf
 
-    PSD.py:
-        - resolved_DWDs_FZ.hdf
-        - resolved_DWDs_F50.hdf
+    figures/PSD.py:
+        - data/resolved_DWDs_FZ.hdf
+        - data/resolved_DWDs_F50.hdf
 
-    LISA_SNR.py:
-        - resolved_DWDs_FZ.hdf
-        - resolved_DWDs_F50.hdf
+    figures/LISA_SNR.py:
+        - data/resolved_DWDs_FZ.hdf
+        - data/resolved_DWDs_F50.hdf
 
-    model_comp.py:
-        - resolved_DWDs_FZ.hdf
-        - resolved_DWDs_F50.hdf
-        - resolved_DWDs_FZ_qcflag_4.hdf
-        - resolved_DWDs_F50_qcflag_4.hdf
-        - resolved_DWDs_FZ_alpha_0.25.hdf
-        - resolved_DWDs_F50_alpha_0.25.hdf
-        - resolved_DWDs_FZ_alpha_5.hdf
-        - resolved_DWDs_F50_alpha_5.hdf
-        - numLISA_30bins_FZ.hdf
-        - numLISA_30bins_F50.hdf
-        - numLISA_30bins_FZ_qcflag_4.hdf
-        - numLISA_30bins_F50_qcflag_4.hdf
-        - numLISA_30bins_FZ_alpha_0.25.hdf
-        - numLISA_30bins_F50_alpha_0.25.hdf
-        - numLISA_30bins_FZ_alpha_5.hdf
-        - numLISA_30bins_F50_alpha_5.hdf
+    figures/model_comp.py:
+        - data/resolved_DWDs_FZ.hdf
+        - data/resolved_DWDs_F50.hdf
+        - data/resolved_DWDs_FZ_qcflag_4.hdf
+        - data/resolved_DWDs_F50_qcflag_4.hdf
+        - data/resolved_DWDs_FZ_alpha_0.25.hdf
+        - data/resolved_DWDs_F50_alpha_0.25.hdf
+        - data/resolved_DWDs_FZ_alpha_5.hdf
+        - data/resolved_DWDs_F50_alpha_5.hdf
+        - data/numLISA_30bins_FZ.hdf
+        - data/numLISA_30bins_F50.hdf
+        - data/numLISA_30bins_FZ_qcflag_4.hdf
+        - data/numLISA_30bins_F50_qcflag_4.hdf
+        - data/numLISA_30bins_FZ_alpha_0.25.hdf
+        - data/numLISA_30bins_F50_alpha_0.25.hdf
+        - data/numLISA_30bins_FZ_alpha_5.hdf
+        - data/numLISA_30bins_F50_alpha_5.hdf
 
