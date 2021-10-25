@@ -5,11 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 
 
-# Needed for `\langle` and `\rangle` commands
-mpl.rcParams["text.usetex"] = True
-mpl.rcParams["text.latex.preamble"] = r"\usepackage{amsmath}"
-
-
 Heinter = pd.read_hdf("../data/10_10_intersep_FZ.hdf", key="data")
 COHeinter = pd.read_hdf("../data/11_10_intersep_FZ.hdf", key="data")
 COinter = pd.read_hdf("../data/11_11_intersep_FZ.hdf", key="data")
