@@ -2,144 +2,144 @@
 verbose: true
 
 zenodo:
-    - data/FIRE.h5:
+    - src/data/FIRE.h5:
         id: 942967
         sandbox: true
 
-    - data/DWDeff_FZ.hdf:
+    - src/data/DWDeff_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/DWDeff_F50.hdf:
+    - src/data/DWDeff_F50.hdf:
         id: 942967
         sandbox: true
 
-    - data/10_10_intersep_FZ.hdf:
+    - src/data/10_10_intersep_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/11_10_intersep_FZ.hdf:
+    - src/data/11_10_intersep_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/11_11_intersep_FZ.hdf:
+    - src/data/11_11_intersep_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/12_intersep_FZ.hdf:
+    - src/data/12_intersep_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_FZ.hdf:
+    - src/data/numLISA_30bins_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_F50.hdf:
+    - src/data/numLISA_30bins_F50.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_FZ.hdf:
+    - src/data/resolved_DWDs_FZ.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_F50.hdf:
+    - src/data/resolved_DWDs_F50.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_FZ_qcflag_4.hdf:
+    - src/data/resolved_DWDs_FZ_qcflag_4.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_F50_qcflag_4.hdf:
+    - src/data/resolved_DWDs_F50_qcflag_4.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_FZ_alpha_0.25.hdf:
+    - src/data/resolved_DWDs_FZ_alpha_0.25.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_F50_alpha_0.25.hdf:
+    - src/data/resolved_DWDs_F50_alpha_0.25.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_FZ_alpha_5.hdf:
+    - src/data/resolved_DWDs_FZ_alpha_5.hdf:
         id: 942967
         sandbox: true
 
-    - data/resolved_DWDs_F50_alpha_5.hdf:
+    - src/data/resolved_DWDs_F50_alpha_5.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_FZ_qcflag_4.hdf:
+    - src/data/numLISA_30bins_FZ_qcflag_4.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_F50_qcflag_4.hdf:
+    - src/data/numLISA_30bins_F50_qcflag_4.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_FZ_alpha_0.25.hdf:
+    - src/data/numLISA_30bins_FZ_alpha_0.25.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_F50_alpha_0.25.hdf:
+    - src/data/numLISA_30bins_F50_alpha_0.25.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_FZ_alpha_5.hdf:
+    - src/data/numLISA_30bins_FZ_alpha_5.hdf:
         id: 942967
         sandbox: true
 
-    - data/numLISA_30bins_F50_alpha_5.hdf:
+    - src/data/numLISA_30bins_F50_alpha_5.hdf:
         id: 942967
         sandbox: true
 
 
 dependencies:
-    figures/sfh_vs_fb.py:
-        - data/FIRE.h5
+    src/figures/sfh_vs_fb.py:
+        - src/data/FIRE.h5
 
-    figures/form_eff.py:
-        - data/DWDeff_FZ.hdf
-        - data/DWDeff_F50.hdf
+    src/figures/form_eff.py:
+        - src/data/DWDeff_FZ.hdf
+        - src/data/DWDeff_F50.hdf
 
-    figures/CEsep.py:
-        - data/10_10_intersep_FZ.hdf
-        - data/11_10_intersep_FZ.hdf
-        - data/11_11_intersep_FZ.hdf
-        - data/12_intersep_FZ.hdf
+    src/figures/CEsep.py:
+        - src/data/10_10_intersep_FZ.hdf
+        - src/data/11_10_intersep_FZ.hdf
+        - src/data/11_11_intersep_FZ.hdf
+        - src/data/12_intersep_FZ.hdf
 
-    figures/lisa_nums.py:
-        - data/numLISA_30bins_FZ.hdf
-        - data/numLISA_30bins_F50.hdf
+    src/figures/lisa_nums.py:
+        - src/data/numLISA_30bins_FZ.hdf
+        - src/data/numLISA_30bins_F50.hdf
 
-    figures/Mc_vs_dist.py:
-        - data/resolved_DWDs_FZ.hdf
-        - data/resolved_DWDs_F50.hdf
+    src/figures/Mc_vs_dist.py:
+        - src/data/resolved_DWDs_FZ.hdf
+        - src/data/resolved_DWDs_F50.hdf
 
-    figures/PSD.py:
-        - data/resolved_DWDs_FZ.hdf
-        - data/resolved_DWDs_F50.hdf
+    src/figures/PSD.py:
+        - src/data/resolved_DWDs_FZ.hdf
+        - src/data/resolved_DWDs_F50.hdf
 
-    figures/LISA_SNR.py:
-        - data/resolved_DWDs_FZ.hdf
-        - data/resolved_DWDs_F50.hdf
+    src/figures/LISA_SNR.py:
+        - src/data/resolved_DWDs_FZ.hdf
+        - src/data/resolved_DWDs_F50.hdf
 
-    figures/model_comp.py:
-        - data/resolved_DWDs_FZ.hdf
-        - data/resolved_DWDs_F50.hdf
-        - data/resolved_DWDs_FZ_qcflag_4.hdf
-        - data/resolved_DWDs_F50_qcflag_4.hdf
-        - data/resolved_DWDs_FZ_alpha_0.25.hdf
-        - data/resolved_DWDs_F50_alpha_0.25.hdf
-        - data/resolved_DWDs_FZ_alpha_5.hdf
-        - data/resolved_DWDs_F50_alpha_5.hdf
-        - data/numLISA_30bins_FZ.hdf
-        - data/numLISA_30bins_F50.hdf
-        - data/numLISA_30bins_FZ_qcflag_4.hdf
-        - data/numLISA_30bins_F50_qcflag_4.hdf
-        - data/numLISA_30bins_FZ_alpha_0.25.hdf
-        - data/numLISA_30bins_F50_alpha_0.25.hdf
-        - data/numLISA_30bins_FZ_alpha_5.hdf
-        - data/numLISA_30bins_F50_alpha_5.hdf
+    src/figures/model_comp.py:
+        - src/data/resolved_DWDs_FZ.hdf
+        - src/data/resolved_DWDs_F50.hdf
+        - src/data/resolved_DWDs_FZ_qcflag_4.hdf
+        - src/data/resolved_DWDs_F50_qcflag_4.hdf
+        - src/data/resolved_DWDs_FZ_alpha_0.25.hdf
+        - src/data/resolved_DWDs_F50_alpha_0.25.hdf
+        - src/data/resolved_DWDs_FZ_alpha_5.hdf
+        - src/data/resolved_DWDs_F50_alpha_5.hdf
+        - src/data/numLISA_30bins_FZ.hdf
+        - src/data/numLISA_30bins_F50.hdf
+        - src/data/numLISA_30bins_FZ_qcflag_4.hdf
+        - src/data/numLISA_30bins_F50_qcflag_4.hdf
+        - src/data/numLISA_30bins_FZ_alpha_0.25.hdf
+        - src/data/numLISA_30bins_F50_alpha_0.25.hdf
+        - src/data/numLISA_30bins_FZ_alpha_5.hdf
+        - src/data/numLISA_30bins_F50_alpha_5.hdf
 
