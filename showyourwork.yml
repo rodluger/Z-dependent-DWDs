@@ -1,11 +1,6 @@
 # User configuration; see the docs for details!
 verbose: true
 
-arxiv_tarball_exclude:
-  - "**/*.py"
-  - "**/matplotlibrc"
-  - "**/.gitignore"
-
 zenodo:
     - data/FIRE.h5:
         id: 942967
