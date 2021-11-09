@@ -2,97 +2,75 @@
 verbose: true
 
 zenodo:
-    - src/data/FIRE.h5:
+    - src/data/FIRE.h5: &deposit
         id: 942967
         sandbox: true
 
     - src/data/DWDeff_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/DWDeff_F50.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/10_10_intersep_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/11_10_intersep_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/11_11_intersep_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/12_intersep_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_F50.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_FZ.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_F50.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_FZ_qcflag_4.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_F50_qcflag_4.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_FZ_alpha_0.25.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_F50_alpha_0.25.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_FZ_alpha_5.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/resolved_DWDs_F50_alpha_5.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_FZ_qcflag_4.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_F50_qcflag_4.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_FZ_alpha_0.25.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_F50_alpha_0.25.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_FZ_alpha_5.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
     - src/data/numLISA_30bins_F50_alpha_5.hdf:
-        id: 942967
-        sandbox: true
+        <<: *deposit
 
 
 dependencies:
