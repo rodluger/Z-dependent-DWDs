@@ -966,14 +966,6 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
                            ydata=np.log10(power_dat_median_fit.strain_2.values))
 
     
-    psd_conf = psd.power_spectral_density(f=np.linspace(1e-4, 1e-1, 1000000) * u.Hz, 
-                                          instrument="custom", 
-                                          custom_psd=cosmic_confusion, 
-                                          t_obs=Tobs, 
-                                          L=None, 
-                                          approximate_R=True, 
-                                          confusion_noise=None)
-
     sources_conf = source.Source(m_1=dat.mass_1.values * u.Msun, 
                                  m_2=dat.mass_2.values * u.Msun,  
                                  ecc=np.zeros(len(dat.mass_1)), 
