@@ -32,26 +32,12 @@ popt_F50_list = []
 popt_FZ_list = []
 
 for m in models:
-    if m == "log_uniform":
-        n_lisa_F50 = pd.read_hdf("../data/numLISA_30bins_F50.hdf", key="data")
-        n_lisa_FZ = pd.read_hdf("../data/numLISA_30bins_FZ.hdf", key="data")
+    numsFZ = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("FZ", model))
+    numsF50 = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("F50", model))
 
-        popt_F50 = pd.read_hdf("../data/resolved_DWDs_F50.hdf", key="conf_fit")
-        popt_FZ = pd.read_hdf("../data/resolved_DWDs_FZ.hdf", key="conf_fit")
-    else:
-        n_lisa_F50 = pd.read_hdf(
-            "../data/numLISA_30bins_F50_{}.hdf".format(m), key="data"
-        )
-        n_lisa_FZ = pd.read_hdf(
-            "../data/numLISA_30bins_FZ_{}.hdf".format(m), key="data"
-        )
 
-        popt_F50 = pd.read_hdf(
-            "../data/resolved_DWDs_F50_{}.hdf".format(m), key="conf_fit"
-        )
-        popt_FZ = pd.read_hdf(
-            "../data/resolved_DWDs_FZ_{}.hdf".format(m), key="conf_fit"
-        )
+    popt_F50 = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format("FZ", model))
+    popt_FZ = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format("FZ", model))
 
     n_lisa_F50 = np.sum(n_lisa_F50.values.flatten())
     n_lisa_FZ = np.sum(n_lisa_FZ.values.flatten())

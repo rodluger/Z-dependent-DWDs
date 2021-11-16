@@ -99,6 +99,7 @@ ax.legend(
     borderaxespad=0,
     frameon=False,
 )
+   
 ax.set_zorder(ax2.get_zorder() + 1)
 ax.patch.set_visible(False)
 ax.set_xlabel("Log$_{10}$(Z/Z$_\odot$)")
@@ -106,4 +107,7 @@ ax.set_ylabel("Binary Fraction")
 ax2.set_ylabel(r"M$_{\rm{stars}}$ per Z bin (M$_\odot$)")
 ax2.set_yticks([1e4, 1e5, 1e6, 1e7])
 ax2.set_yticklabels(["7e7", "7e8", "7e9", "7e10"])
-plt.savefig("sfh_vs_fb.pdf", dpi=100)
+ax2.tick_params(labelsize=20)
+ax.tick_params(labelsize=20)
+ax2.set_ylim(1e4-0.1e4, 1e7+0.1e7)
+plt.savefig("sfh_vs_fb.pdf",  bbox_inches='tight', dpi=100)
