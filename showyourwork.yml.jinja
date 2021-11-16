@@ -3,56 +3,56 @@ verbose: true
 
 zenodo:
     - src/data/FIRE.h5: &deposit
-        id: 959363
+        id: 962637
         sandbox: true
 
 {% for i in range(15) %}
-    - src/data/fiducial_10_10_{{i}}.dat:
+    - src/data/fiducial_10_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/fiducial_11_10_{{i}}.dat:
+    - src/data/fiducial_11_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/fiducial_11_11_{{i}}.dat:
+    - src/data/fiducial_11_11_{{i}}.h5:
         <<: *deposit
 
-    - src/data/fiducial_12_10_12_{{i}}.dat:
+    - src/data/fiducial_12_10_12_{{i}}.h5:
         <<: *deposit
     
-    - src/data/q3_10_10_{{i}}.dat:
+    - src/data/q3_10_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/q3_11_10_{{i}}.dat:
+    - src/data/q3_11_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/q3_11_11_{{i}}.dat:
+    - src/data/q3_11_11_{{i}}.h5:
         <<: *deposit
 
-    - src/data/q3_12_10_12_{{i}}.dat:
+    - src/data/q3_12_10_12_{{i}}.h5:
         <<: *deposit
     
-    - src/data/alpha25_10_10_{{i}}.dat:
+    - src/data/alpha25_10_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha25_11_10_{{i}}.dat:
+    - src/data/alpha25_11_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha25_11_11_{{i}}.dat:
+    - src/data/alpha25_11_11_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha25_12_10_12_{{i}}.dat:
+    - src/data/alpha25_12_10_12_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha5_10_10_{{i}}.dat:
+    - src/data/alpha5_10_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha5_11_10_{{i}}.dat:
+    - src/data/alpha5_11_10_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha5_11_11_{{i}}.dat:
+    - src/data/alpha5_11_11_{{i}}.h5:
         <<: *deposit
 
-    - src/data/alpha5_12_10_12_{{i}}.dat:
+    - src/data/alpha5_12_10_12_{{i}}.h5:
         <<: *deposit
 {% endfor %}
 
@@ -76,22 +76,22 @@ zenodo:
 dependencies:
     src/figures/pipeline.py:
     {% for i in range(15) %}
-        - src/data/fiducial_10_10_{{i}}.dat
-        - src/data/fiducial_11_10_{{i}}.dat
-        - src/data/fiducial_11_11_{{i}}.dat
-        - src/data/fiducial_12_10_12_{{i}}.dat
-        - src/data/q3_10_10_{{i}}.dat
-        - src/data/q3_11_10_{{i}}.dat
-        - src/data/q3_11_11_{{i}}.dat
-        - src/data/q3_12_10_12_{{i}}.dat
-        - src/data/alpha25_10_10_{{i}}.dat
-        - src/data/alpha25_11_10_{{i}}.dat
-        - src/data/alpha25_11_11_{{i}}.dat
-        - src/data/alpha25_12_10_12_{{i}}.dat
-        - src/data/alpha5_10_10_{{i}}.dat
-        - src/data/alpha5_11_10_{{i}}.dat
-        - src/data/alpha5_11_11_{{i}}.dat
-        - src/data/alpha5_12_10_12_{{i}}.dat
+        - src/data/fiducial_10_10_{{i}}.h5
+        - src/data/fiducial_11_10_{{i}}.h5
+        - src/data/fiducial_11_11_{{i}}.h5
+        - src/data/fiducial_12_10_12_{{i}}.h5
+        - src/data/q3_10_10_{{i}}.h5
+        - src/data/q3_11_10_{{i}}.h5
+        - src/data/q3_11_11_{{i}}.h5
+        - src/data/q3_12_10_12_{{i}}.h5
+        - src/data/alpha25_10_10_{{i}}.h5
+        - src/data/alpha25_11_10_{{i}}.h5
+        - src/data/alpha25_11_11_{{i}}.h5
+        - src/data/alpha25_12_10_12_{{i}}.h5
+        - src/data/alpha5_10_10_{{i}}.h5
+        - src/data/alpha5_11_10_{{i}}.h5
+        - src/data/alpha5_11_11_{{i}}.h5
+        - src/data/alpha5_12_10_12_{{i}}.h5
     {% endfor %}
 
     src/figures/sfh_vs_fb.py:
