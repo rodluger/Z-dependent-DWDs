@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import astropy.units as u
 import seaborn as sns
 
+model="fiducial"
+
 resolved_dat_FZ = pd.read_hdf(
    "../data/results.hdf", key="resolved_DWDs_{}_{}".format("FZ", model)
 )
@@ -47,7 +49,6 @@ dists = [x.dist_sun.values for x in [Heplot, COHeplot, COplot, ONeplot]]
 dists_F50 = [
     x.dist_sun.values for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]
 ]
-
 M_c = [
     utils.chirp_mass(x.mass_1.values * u.M_sun, x.mass_2.values * u.M_sun).value
     for x in [Heplot, COHeplot, COplot, ONeplot]
@@ -56,6 +57,7 @@ M_c_F50 = [
     utils.chirp_mass(x.mass_1.values * u.M_sun, x.mass_2.values * u.M_sun).value
     for x in [Heplot_F50, COHeplot_F50, COplot_F50, ONeplot_F50]
 ]
+
 fig, ax = plt.subplots(1, 4, figsize=(16,4))
 levels = [0.05, 0.25, 0.50, 0.75, 0.95]
 label_y = [0.35, 0.49, 0.95, 1.6]
@@ -64,7 +66,7 @@ labels = ['He + He', 'CO + He', 'CO + CO', 'ONe + X']
 
 for dist, Mc, dist_F50, Mc_F50, ii in zip(dists, M_c, dists_F50, M_c_F50, range(len(dists))):
     sns.kdeplot(
-        x=dist.values, 
+        x=dist, 
         y=Mc, 
         fill=False, 
         ax=ax[ii], 
@@ -72,11 +74,10 @@ for dist, Mc, dist_F50, Mc_F50, ii in zip(dists, M_c, dists_F50, M_c_F50, range(
         zorder=3, 
         linewidths=3.5, 
         label='FZ', 
-        levels=levels, 
-        rasterized=True
+        levels=levels
     )
     sns.kdeplot(
-        x=dist_F50.values, 
+        x=dist_F50, 
         y=Mc_F50, 
         fill=False, 
         ax=ax[ii], 
@@ -85,26 +86,25 @@ for dist, Mc, dist_F50, Mc_F50, ii in zip(dists, M_c, dists_F50, M_c_F50, range(
         linewidths=3.5, 
         linestyles='--', 
         label='F50', 
-        levels=levels, 
-        rasterized=True
+        levels=levels 
     )
     ax[ii].legend(loc=(0, 1.01), 
-                  prop={'size':22}, 
+                  prop={'size':18}, 
                   ncol=2, 
                   frameon=False)
 
-ax[0].set_ylabel('Chirp Mass [M$_\odot$]', fontsize=24)
+ax[0].set_ylabel('Chirp Mass [M$_\odot$]', fontsize=20)
 for i, name in zip(range(4), labels):
-    ax[i].set_xlabel(r'Distance [kpc]', fontsize=24)
-    ax[i].text(0.05, 0.9, name, fontsize=22, horizontalalignment='left',
+    ax[i].set_xlabel(r'Distance [kpc]', fontsize=20)
+    ax[i].text(0.05, 0.9, name, fontsize=20, horizontalalignment='left',
                transform=ax[i].transAxes)
     ax[i].xaxis.set_minor_locator(AutoMinorLocator())
     ax[i].yaxis.set_minor_locator(AutoMinorLocator())
-    ax[i].tick_params(labelsize=22)
+    ax[i].tick_params(labelsize=16)
 
 
 for j in range(4):
-    ax[j].set_xlim(0, 25)
+    ax[j].set_xlim(0, 35)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25)

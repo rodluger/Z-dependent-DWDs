@@ -6,7 +6,8 @@ dependencies:
   - python=3.8
   - pip:
       - matplotlib>=3.3.3
-      - legwork
+      - legwork>=0.1.6
+      - seaborn
       - pandas
       - astropy
       - h5py 

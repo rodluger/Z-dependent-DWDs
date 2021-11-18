@@ -33,9 +33,9 @@ for model in models:
         pathtodat=dat_path, pathtosave=dat_path, model=model, var=True
     )
     print('interaction sep FZ done')
-     
+ 
     pp.get_interactionsep_and_numLISA(
-        pathtodat=dat_path, pathtosave=dat_path, model=model, var=True
+        pathtodat=dat_path, pathtosave=dat_path, model=model, var=False
     )
     print('interaction sep F50 done')
     

@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import AutoMinorLocator
 
+model = "fiducial"
 numsFZ = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("FZ", model))
 numsF50 = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("F50", model))
 
@@ -142,6 +143,6 @@ ax[0].set_ylim(top=2.05)
 ax[1].set_yticks(np.arange(0, 20, 4))
 ax[1].set_ylim(top=18)
 ax[1].set_yticklabels(np.arange(0, 20, 4).astype(float).astype(str))
-ax[3].set_ylim(top=0.81)plt.tight_layout()
+ax[3].set_ylim(top=0.81)
 
 plt.savefig("lisa_nums.pdf", dpi=100)

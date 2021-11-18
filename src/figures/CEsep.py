@@ -6,11 +6,8 @@ import matplotlib as mpl
 
 mpl.rc("text", usetex=True)
 
-Heinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(10, 10, "FZ", "fiducial"))
-COHeinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(11, 10, "FZ", "fiducial"))
-COinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(11, 11, "FZ", "fiducial"))
-ONeinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(12, 10, "FZ", "fiducial"))
 
+model = "fiducial"
 FIREmin = 0.00015
 FIREmax = 13.346
 Z_sun = 0.02
@@ -18,6 +15,11 @@ num = 30
 met_bins = np.logspace(np.log10(FIREmin), np.log10(FIREmax), num)
 met_mids = (met_bins[1:] + met_bins[:-1]) / 2
 whichsep = "CEsep"
+
+Heinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(10, 10, "FZ", "fiducial"))
+COHeinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(11, 10, "FZ", "fiducial"))
+COinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(11, 11, "FZ", "fiducial"))
+ONeinter = pd.read_hdf("../data/results.hdf", key='intersep_{}_{}_{}_{}'.format(12, 10, "FZ", "fiducial"))
 
 Heavgs = []
 Hecovs = []
@@ -31,7 +33,10 @@ for i in range(num - 1):
     meti = met_bins[i]
     metf = met_bins[i + 1]
 
-    Hebin = Heinter.loc[(Heinter.met >= meti) & (Heinter.met <= metf)]
+    Hebin = Heinter.loc[(Heinter.met>=meti)&(Heinter.met<=metf)]
+    COHebin = COHeinter.loc[(COHeinter.met>=meti)&(COHeinter.met<=metf)]
+    CObin = COinter.loc[(COinter.met>=meti)&(COinter.met<=metf)]
+    ONebin = ONeinter.loc[(ONeinter.met>=meti)&(ONeinter.met<=metf)]
     if len(Hebin) != 0:
         Heavgs.append(np.mean(Hebin[whichsep].values))
         Hecovs.append(np.std(Hebin[whichsep].values))
@@ -39,7 +44,6 @@ for i in range(num - 1):
         Heavgs.append(0.0)
         Hecovs.append(0.0)
 
-    COHebin = COHeinter.loc[(COHeinter.met >= meti) & (COHeinter.met <= metf)]
     if len(COHebin) != 0:
         COHeavgs.append(np.mean(COHebin[whichsep].values))
         COHecovs.append(np.std(COHebin[whichsep].values))
@@ -47,7 +51,6 @@ for i in range(num - 1):
         COHeavgs.append(0.0)
         COHecovs.append(0.0)
 
-    CObin = COinter.loc[(COinter.met >= meti) & (COinter.met <= metf)]
     if len(CObin) != 0:
         COavgs.append(np.mean(CObin[whichsep].values))
         COcovs.append(np.std(CObin[whichsep].values))
@@ -55,7 +58,6 @@ for i in range(num - 1):
         COavgs.append(0.0)
         COcovs.append(0.0)
 
-    ONebin = ONeinter.loc[(ONeinter.met >= meti) & (ONeinter.met <= metf)]
     if len(ONebin) != 0:
         ONeavgs.append(np.mean(ONebin[whichsep].values))
         ONecovs.append(np.std(ONebin[whichsep].values))

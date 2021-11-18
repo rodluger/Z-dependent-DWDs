@@ -5,7 +5,7 @@ import seaborn as sns
 import astropy.units as u
 
 models = ["log_uniform", "qcflag_4", "alpha_0.25", "alpha_5"]
-model_names = ["fiducial", r"q3", r"$\alpha25$", r"$\alpha5$"]
+model_names = ["fiducial", "q3", "alpha25", "alpha5"]
 colors = sns.color_palette("mako", n_colors=len(models))
 
 Tobs = 4 * u.yr
@@ -31,7 +31,7 @@ n_lisa_F50_list = []
 popt_F50_list = []
 popt_FZ_list = []
 
-for m in models:
+for model in model_names:
     numsFZ = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("FZ", model))
     numsF50 = pd.read_hdf("../data/results.hdf", key="numLISA_30bins_{}_{}".format("F50", model))
 
@@ -39,8 +39,8 @@ for m in models:
     popt_F50 = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format("FZ", model))
     popt_FZ = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format("FZ", model))
 
-    n_lisa_F50 = np.sum(n_lisa_F50.values.flatten())
-    n_lisa_FZ = np.sum(n_lisa_FZ.values.flatten())
+    n_lisa_F50 = np.sum(numsF50.values.flatten())
+    n_lisa_FZ = np.sum(numsFZ.values.flatten())
 
     lisa_ratio.append(n_lisa_FZ / n_lisa_F50)
     n_lisa_F50_list.append(n_lisa_F50)

@@ -2,19 +2,83 @@ from matplotlib.ticker import AutoMinorLocator
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import utils
+
+'''
+Creates plot files with formation efficiency of DWDs. In order to
+run this, there must be already-existing LISA band files created with
+make_galaxy() at pathtoLband.
+    
+INPUTS
+----------------------
+pathtodat [str]: path to folder containing datfiles 
+pathtoLband [str]: path to folder containing LISA band files
+pathtosave [str]: path to folder to save formation efficiency information to
+    
+RETURNS
+----------------------
+No direct function outputs, but saves formation efficiency data for all
+DWD types and metallicity bins to files contained in pathtosave.
+'''
+def formeff(datfiles, pathtodat, label, model):
+    lenconv = []
+    masslist = []
+    for i in range(15):
+        if model == 'F50':
+            binfrac = 0.5
+            ratio = ratio_05
+        elif model == 'FZ':
+            binfrac = binfracs[i]
+            ratio = ratios[i]
+        mass_binaries = pd.read_hdf(pathtodat + datfiles[i], key='mass_stars').iloc[-1]
+        mass = (1 + ratio) * mass_binaries
+        conv = pd.read_hdf(pathtodat + datfiles[i], key='conv')
+                            
+        masslist.append(mass)
+        lenconv.append(len(conv))
+
+    lenconv = np.array(lenconv)
+    masslist = np.concatenate(np.array(masslist))
+    eff = lenconv / masslist
+    return eff
 
 met_arr = np.logspace(np.log10(1e-4), np.log10(0.03), 15)
 met_arr = np.round(met_arr, 8)
 met_arr = np.append(0.0, met_arr)
 Z_sun = 0.02
 
-DWDeff = pd.read_hdf("../data/results.hdf", key="DWDeff_{}_{}".format("FZ", "fiducial"))
+binfracs = np.array([0.4847, 0.4732, 0.4618, 0.4503, 0.4388, 
+                     0.4274, 0.4159, 0.4044, 0.3776, 0.3426, 
+                     0.3076, 0.2726, 0.2376, 0.2027, 0.1677])
+
+ratios = np.array([0.68, 0.71, 0.74, 0.78, 0.82, 
+                   0.86, 0.9, 0.94, 1.05, 1.22, 
+                   1.44, 1.7 , 2.05, 2.51, 3.17])
+
+ratio_05 = 0.64
+
+kstar1_list = ['10', '11', '11', '12']
+kstar2_list = ['10', '10', '11', '10_12']
+labels = ['10_10', '11_10', '11_11', '12']
+pathtodat = "../data/"
+eff_var = []
+eff_05 = []
+for kstar1, kstar2, label in zip(kstar1_list, kstar2_list, labels):
+    files, lab = utils.getfiles(kstar1=kstar1, kstar2=kstar2, model="fiducial")
+    eff_var.append(formeff(files, pathtodat, label, 'FZ'))
+    eff_05.append(formeff(files, pathtodat, label, 'F50'))
+    print('finished {}'.format(label))
+
+DWDeff = pd.DataFrame(np.array(eff_var).T, columns=['He', 'COHe', 'CO', 'ONe'])
+
+DWDeff05 = pd.DataFrame(np.array(eff_05).T, columns=['He', 'COHe', 'CO', 'ONe'])
+    
+
 effHe = DWDeff.He.values
 effCOHe = DWDeff.COHe.values
 effCO = DWDeff.CO.values
 effONe = DWDeff.ONe.values
 
-DWDeff05 = pd.read_hdf("../data/results.hdf", key="DWDeff_{}_{}".format("F50", "fiducial"))
 effHe05 = DWDeff05.He.values
 effCOHe05 = DWDeff05.COHe.values
 effCO05 = DWDeff05.CO.values

@@ -3,7 +3,7 @@ verbose: true
 
 zenodo:
     - src/data/FIRE.h5: &deposit
-        id: 962637
+        id: 962668
         sandbox: true
 
 {% for i in range(15) %}
@@ -59,15 +59,11 @@ zenodo:
     - src/data/results.hdf:
         script: src/figures/pipeline.py
         sandbox: True
-        token_name: ZENODO_TOKEN
+        token_name: ZENODO_KEY
         title: Post-processing results for Thiele+2021
         description: >-
             This dataset contains data to produce the figures 
-            from Thiele, Breivik, and Sanderson 2021 as well as
-            all double white dwarf binaries orbiting with frequencies
-            above 1e-4 Hz for the fiducial, q3, alpha25, and alpha5
-            variations, all double white dwarf binaries resolvable by
-            LISA for the same model set.
+            from Thiele, Breivik, and Sanderson 2021
         creators:
             - Thiele, Sarah
             - Breivik, Katelyn

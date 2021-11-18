@@ -26,8 +26,8 @@ def plot_LISAcurves(model):
         psd_plus_conf = conf + lisa_psd_no_conf
         return psd_plus_conf.to(u.Hz ** (-1))
 
-    resolved = pd.read_hdf("../data/results.hdf", key="resolved_DWDs_{}_{}".format("FZ", model))
-    popt = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format("FZ", model))
+    resolved = pd.read_hdf("../data/results.hdf", key="resolved_DWDs_{}_{}".format(model, "fiducial"))
+    popt = pd.read_hdf("../data/results.hdf", key="conf_fit_DWDs_{}_{}".format(model, "fiducial"))
     popt = popt.values.flatten()
     
     resolved_HeHe = resolved.loc[(resolved.kstar_1 == 10) & (resolved.kstar_2 == 10)]
@@ -41,11 +41,11 @@ def plot_LISAcurves(model):
     psd_conf = psd.power_spectral_density(
         f=np.linspace(1e-4, 1e-1, 1000000) * u.Hz, 
         instrument="custom", 
-        custom_function=cosmic_confusion, 
+        custom_psd=cosmic_confusion, 
         t_obs=t_obs, 
         L=None, 
         approximate_R=True, 
-        include_confusion_noise=False
+        confusion_noise=None
     )
     
     
@@ -200,7 +200,6 @@ def plot_LISAcurves(model):
     ax[0].set_ylabel(r'ASD [Hz$^{-1/2}$]', size=24)
     plt.tight_layout()
     plt.subplots_adjust(wspace=0.25)
-    if save:
     plt.savefig("LISA_SNR_{}.pdf".format(model), dpi=100)
 
     return

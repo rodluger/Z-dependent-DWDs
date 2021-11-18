@@ -806,8 +806,9 @@ def get_interactionsep_and_numLISA(pathtodat, pathtosave, model, var, FIREmin=0.
         data_RLOF['CEtime'] = np.repeat(CEsep['tphys'], CEsep['weights']).values
         data_RLOF['RLOFsep'] = np.repeat(RLOFsep['sep'], RLOFsep['weights']).values
         data_RLOF['RLOFtime'] = np.repeat(RLOFsep['tphys'], RLOFsep['weights']).values
-            
-        data_RLOF.to_hdf(pathtodat+'results.hdf', key=interkey, append=False)         
+        
+        data_RLOF = data_RLOF[['CEsep', 'CEtime', 'RLOFsep', 'RLOFtime', 'met']]    
+        data_RLOF.to_hdf(pathtodat+'results.hdf', key=interkey, append=True) 
         return
        
     # FZ:
@@ -843,8 +844,8 @@ def get_interactionsep_and_numLISA(pathtodat, pathtosave, model, var, FIREmin=0.
                 continue
             else:
                 interkey = 'intersep_{}_{}_{}_{}'.format(k1, k2, var_label, model)
-                
-                _ = intersep(pathtodat, f, interkey, LISA_data)
+                if model == "fiducial": 
+                    _ = intersep(pathtodat, f, interkey, LISA_data)
                 
                 mets.extend(LISA_data.met.values)
         
@@ -884,14 +885,62 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
     def func(x, a, b, c, d, e):
         return a + b*x + c*x**2 + d*x**3 + e*x**4
     
-    def cosmic_confusion(f, L, t_obs=4 * u.yr, approximate_R=True, confusion_noise=None):
-        lisa_psd_no_conf = psd.power_spectral_density(f, confusion_noise=None, t_obs=t_obs)
-        conf = 10**func(x=np.log10(f.value), 
-                        a=popt[0], b=popt[1], 
-                        c=popt[2], d=popt[3], e=popt[4]) * t_obs.to(u.s)
-    
+    def cosmic_confusion_var(f, L, t_obs=4 * u.yr, approximate_R=True, confusion_noise=None):
+        power_dat = pd.read_hdf("../data/results.hdf", key='total_power_DWDs_{}_{}'.format('FZ', 'fiducial'))
+
+        power_dat_median = power_dat.rolling(window).median()
+        power_dat_median = power_dat_median[window:]
+
+        power_dat_median_fit = power_dat_median.loc[(power_dat_median.strain_2 > 0) & 
+                                                    (power_dat_median.f_gw <= 1.2e-3)]
+
+        popt, pcov = curve_fit(func,
+                           xdata=np.log10(power_dat_median_fit.f_gw.values),
+                           ydata=np.log10(power_dat_median_fit.strain_2.values))
+
+        lisa_psd_no_conf = psd.power_spectral_density(
+            f, confusion_noise=None, t_obs=4 * u.yr
+        )
+        conf = 10 ** func(
+            x=np.log10(f.value),
+            a=popt[0],
+            b=popt[1],
+            c=popt[2],
+            d=popt[3],
+            e=popt[4]
+        ) * t_obs.to(u.s)
+
         psd_plus_conf = conf + lisa_psd_no_conf
-        return psd_plus_conf.to(u.Hz**(-1))
+        return psd_plus_conf.to(u.Hz ** (-1))
+
+    def cosmic_confusion_50(f, L, t_obs=4 * u.yr, approximate_R=True, confusion_noise=None):
+        power_dat = pd.read_hdf("../data/results.hdf", key='total_power_DWDs_{}_{}'.format('F50', 'fiducial'))
+
+        power_dat_median = power_dat.rolling(window).median()
+        power_dat_median = power_dat_median[window:]
+
+        power_dat_median_fit = power_dat_median.loc[(power_dat_median.strain_2 > 0) &
+                                                    (power_dat_median.f_gw <= 1.2e-3)]
+
+        popt, pcov = curve_fit(func,
+                           xdata=np.log10(power_dat_median_fit.f_gw.values),
+                           ydata=np.log10(power_dat_median_fit.strain_2.values))
+
+        lisa_psd_no_conf = psd.power_spectral_density(
+            f, confusion_noise=None, t_obs=4 * u.yr
+        )
+        conf = 10 ** func(
+            x=np.log10(f.value),
+            a=popt[0],
+            b=popt[1],
+            c=popt[2],
+            d=popt[3],
+            e=popt[4]
+        ) * t_obs.to(u.s)
+
+        psd_plus_conf = conf + lisa_psd_no_conf
+        return psd_plus_conf.to(u.Hz ** (-1))
+
 
     kstar1_list = ['10', '11', '11', '12']
     kstar2_list = ['10', '10', '11', '10_12']
@@ -924,9 +973,11 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
             
             Lsavefile = 'Lband_{}_{}_{}_{}.hdf'.format(label, var_label, model, i)
             if len(dat) == 0:
-                dat = pd.read_hdf(pathtodat+Lsavefile, key=Lkey)
+                Ldat = pd.read_hdf(pathtodat+Lsavefile, key=Lkey)
+                dat = Ldat[['mass_1', 'mass_2', 'dist_sun', 'f_gw', 'kstar_1', 'kstar_2']]
             else:
-                dat = dat.append(pd.read_hdf(pathtodat+Lsavefile, key=Lkey))
+                Ldat = pd.read_hdf(pathtodat+Lsavefile, key=Lkey)
+                dat = dat.append(Ldat[['mass_1', 'mass_2', 'dist_sun', 'f_gw', 'kstar_1', 'kstar_2']])
     
     sources = source.Source(m_1=dat.mass_1.values * u.Msun, 
                             m_2=dat.mass_2.values * u.Msun,  
@@ -944,7 +995,8 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
     dat['h_0'] = sources.get_h_0_n(harmonics=[2])
     dat['power'] = sources.get_h_0_n(harmonics=[2])**2
     dat['digits'] = np.digitize(dat.f_gw, lisa_bins)
-            
+    sources = []    
+        
     power = dat.groupby('digits').power.sum()
     power_foreground = np.zeros(len(lisa_bins))
     power_foreground[np.array(power.index.astype(int))] = power
@@ -954,11 +1006,11 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
     
     power_dat_median = power_dat.rolling(window).median()
     power_dat_median = power_dat_median[window:]
-    power_dat.to_hdf(pathtosave+'results.hdf', key=Pkey)
+    if model == 'fiducial':
+        power_dat.to_hdf(pathtosave+'results.hdf', key=Pkey)
     power_dat = []
-    sources = []
-
-    dat = dat[['mass_1', 'mass_2', 'dist_sun', 'f_gw']]
+    
+    dat = dat[['mass_1', 'mass_2', 'dist_sun', 'f_gw', 'kstar_1', 'kstar_2', 'h_0']]
     power_dat_median_fit = power_dat_median.loc[(power_dat_median.strain_2 > 0) & (power_dat_median.f_gw <= 1.2e-3)]
 
     popt, pcov = curve_fit(func, 
@@ -966,32 +1018,37 @@ def get_resolvedDWDs(pathtodat, pathtosave, var, model, window=1000):
                            ydata=np.log10(power_dat_median_fit.strain_2.values))
 
     
-    sources_conf = source.Source(m_1=dat.mass_1.values * u.Msun, 
-                                 m_2=dat.mass_2.values * u.Msun,  
-                                 ecc=np.zeros(len(dat.mass_1)), 
-                                 dist=dat.dist_sun.values * u.kpc, 
-                                 f_orb=dat.f_gw.values/2 * u.Hz,
-                                 stat_tol = 1/(Tobs.to(u.s).value),
-                                 interpolate_g=True, 
-                                 interpolate_sc=True, 
-                                 sc_params={"instrument": "custom",
-                                            "custom_psd":cosmic_confusion,
-                                            "t_obs": Tobs,
-                                            "L": 2.5e9 * u.m,
-                                            "approximate_R": True,
-                                            "confusion_noise": None})
- 
-    dat['snr'] = sources_conf.get_snr(t_obs=Tobs, verbose=False)
-    dat['chirp'] = utils.fn_dot(sources_conf.m_c, sources_conf.f_orb, sources_conf.ecc, n=2).to(u.s**(-2)).value
-    dat = dat.loc[dat.snr > 7]
-    dat['resolved_chirp'] = np.zeros(len(dat))
-    dat.loc[dat.chirp > 1/((Tobs.to(u.s).value)**2), 'resolved_chirp'] = 1.0
-    
-    dat.to_hdf(pathtosave+'results.hdf', key=Rkey)    
+    if model == 'fiducial':
+        if var:
+            cosmic_confusion = cosmic_confusion_var
+        else:
+            cosmic_confusion = cosmic_confusion_50
+        sources_conf = source.Source(m_1=dat.mass_1.values * u.Msun, 
+                                     m_2=dat.mass_2.values * u.Msun,  
+                                     ecc=np.zeros(len(dat.mass_1)), 
+                                     dist=dat.dist_sun.values * u.kpc, 
+                                     f_orb=dat.f_gw.values/2 * u.Hz,
+                                     stat_tol = 1/(Tobs.to(u.s).value),
+                                     interpolate_g=True, 
+                                     interpolate_sc=False, 
+                                     sc_params={"instrument": "custom",
+                                                "t_obs": Tobs,
+                                                "L": 2.5e9 * u.m,
+                                                "approximate_R": True,
+                                                "confusion_noise": None,
+                                                "custom_psd": cosmic_confusion})
+
+        dat['snr'] = sources_conf.get_snr(t_obs=Tobs, verbose=False, custom_psd=cosmic_confusion)
+        dat['chirp'] = utils.fn_dot(sources_conf.m_c, sources_conf.f_orb, sources_conf.ecc, n=2).to(u.s**(-2)).value
+        dat = dat.loc[dat.snr > 7]
+        dat['resolved_chirp'] = np.zeros(len(dat))
+        dat.loc[dat.chirp > 1/((Tobs.to(u.s).value)**2), 'resolved_chirp'] = 1.0
+
+        dat.to_hdf(pathtosave+'results.hdf', key=Rkey)    
+        sources_conf = []
+
     dat = []
-    sources_conf = []
     pd.DataFrame(popt).to_hdf(pathtosave+'results.hdf', key=Ckey)
-        
-    
+ 
     return
     

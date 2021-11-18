@@ -7,7 +7,7 @@ import astropy.units as u
 def func(x, a, b, c, d, e):
     return a + b * x + c * x ** 2 + d * x ** 3 + e * x ** 4
 
-
+model = "fiducial"
 colors = ["#add0ed", "#2b5d87", "#4288c2", "#17334a"]
 Tobs = 4 * u.yr
 
